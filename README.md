@@ -32,7 +32,7 @@ docker-compose -p "nfl" up
 The app container exposes port 9000 and if nothing went wrong you should see
 a leaderboard populate with the players from the json file by navigating to http://localhost:9000.
 
-https://user-images.githubusercontent.com/654727/156025299-2c50b34f-008f-46a4-b1e4-a6f92a6d0924.mp4
+https://user-images.githubusercontent.com/100717163/156229476-271e438e-e959-4b3e-b909-9eb47c4c2a14.mp4
 
 ### Design
 
