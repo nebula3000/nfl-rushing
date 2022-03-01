@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+    postgres_db:
+        image: postgres:14.1
+        hostname: db_service
+        environment:
+            - POSTGRES_DB=nfl
+            - POSTGRES_USER=postgres
+            - POSTGRES_HOST_AUTH_METHOD=trust
+        volumes:
+            - postgres-data-remove-me:/var/lib/postgresql/data/
+        ports:
+            - '5500:5432'
+        command: >
+            -c max_wal_size=4GB
+            -c min_wal_size=1GB
+            -c work_mem=8GB
+
+    leaderboard:
+        depends_on:
+            - postgres_db
+        image: nfl:latest
+        environment:
+            - DB_PORT=5432
+            - DB_HOST=db_service
+            - SERVER_HOST=0.0.0.0
+            - SERVER_PORT=9000
+            - NODE_OPTIONS=--max-old-space-size=12288
+            - NODE_ENV=production
+        ports:
+            - '9000:9000'
+
+volumes:
+    postgres-data-remove-me:

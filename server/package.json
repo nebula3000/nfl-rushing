@@ -1,0 +1,29 @@
+{
+    "name": "mini-leaderboard",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "test": "jest",
+        "pretty": "prettier --write .",
+        "migrate-up": "knex migrate:latest --knexfile ./db/knexfile.js",
+        "migrate-down": "knex migrate:rollback --knexfile ./db/knexfile.js"
+    },
+    "dependencies": {
+        "app": "link:./",
+        "csv-writer": "^1.6.0",
+        "exporter": "link:./components/exporter",
+        "fastify": "3.27.1",
+        "fastify-static": "4.5.0",
+        "knex": "1.0.1",
+        "pg": "8.7.3",
+        "pg-cursor": "2.7.3",
+        "pg-query-stream": "4.2.3",
+        "players": "link:./components/players",
+        "yarn": "2.4.3"
+    },
+    "devDependencies": {
+        "jest": "^27.5.1",
+        "prettier": "2.5.1"
+    }
+}
